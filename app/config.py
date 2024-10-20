@@ -1,0 +1,4 @@
+import os
+
+MONGO_URI = os.getenv("MONGO_URI", "mongodb://130.82.171.231:27017")
+KAFKA_BOOTSTRAP_SERVERS = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "130.82.171.231:9092")
