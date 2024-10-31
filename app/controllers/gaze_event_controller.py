@@ -12,15 +12,8 @@ logger = logging.getLogger(__name__)
 async def create_gaze_event(gaze_event: GazeEvent):
     logger.info("Received new gaze event data")
     try:
-        # Convert gaze event to dictionary
         gaze_event_data = gaze_event.dict()
 
-        # For each gaze point, add gazed_object and gaze_activity to the dictionary
-        for gaze_point in gaze_event_data['gaze_points']:
-            gaze_point['gazed_object'] = gaze_event.gazed_object
-            gaze_point['gaze_activity'] = gaze_event.gaze_activity
-
-        # Save event and publish to Kafka
         service.save_gaze_event(gaze_event_data)
         logger.info("Gaze event saved successfully")
 

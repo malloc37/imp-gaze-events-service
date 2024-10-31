@@ -9,12 +9,12 @@ logger = logging.getLogger(__name__)
 
 class GazeEventRepository:
     def __init__(self):
-        self.gaze_points = mongo.get_collection('gaze_points')
+        self.gaze_events = mongo.get_collection('gaze_events')
 
     def save_gaze_event(self, gaze_event: dict):
         """Insert gaze event into MongoDB."""
         try:
-            result = self.gaze_points.insert_one(gaze_event)
+            result = self.gaze_events.insert_one(gaze_event)
             if result.inserted_id:
                 logger.info(f"Gaze event inserted with id: {result.inserted_id}")
                 return result.inserted_id

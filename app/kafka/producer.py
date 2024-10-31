@@ -5,7 +5,6 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-# Kafka configuration
 producer = KafkaProducer(
     bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS,
     value_serializer=lambda v: json.dumps(v).encode('utf-8')

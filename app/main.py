@@ -7,7 +7,7 @@ app = FastAPI()
 app.include_router(gaze_event_controller.router)
 
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
 )
 
